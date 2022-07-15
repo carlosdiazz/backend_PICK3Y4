@@ -1,5 +1,10 @@
 
 const express = require('express');
+
+const response = require('./response');
+
+
+
 const router = express.Router();
 const app = express();
 app.use(express.json());
@@ -9,7 +14,8 @@ app.use(router);
 
 
 router.get('/', (req, res) => {
-    res.send('Hello World!');
+    //res.send('Hello World!');
+    response.error(req,res,"Hello World!",201);
 })
 
 router.post('/', (req, res) => {
