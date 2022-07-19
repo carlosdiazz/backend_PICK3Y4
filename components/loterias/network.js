@@ -5,10 +5,9 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-    //res.send('Hello World!');
-    //response.error(req,res,"Hello World!",201,'siMULANDO ERROR');
-    //response.success(req,res,"Hello World!",201,'siMULANDO ERROR');
-    controller.getLoteria()
+    const filterFechaLoteria = req.query.fecha || null;
+    console.log(filterFechaLoteria);
+    controller.getLoteria(filterFechaLoteria)
         .then((messageList) => {
             response.success(req,res,messageList,200);
         })
@@ -18,7 +17,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    controller.addLoteria(req.body.loteria, req.body.sorteo)
+    controller.addLoteria(req.body.loteria, req.body.sorteo, req.body.numeros_ganadores, req.body.fecha, req.body.agregado_por)
         .then((data)=>{
             response.success(req,res,data,201)
         })

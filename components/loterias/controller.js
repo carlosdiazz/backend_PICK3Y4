@@ -1,15 +1,18 @@
 const store = require('./store.js')
 
-const addLoteria = (loteria,sorteo) => {
+const addLoteria = (loteria, sorteo,numeros_ganadores,fecha,agregado_por ) => {
     return new Promise((resolve, reject) => {
-        if(!loteria || !sorteo){
+        if(!loteria || !sorteo || !numeros_ganadores || !fecha || !agregado_por){
             console.log('Falta algo en el JSON')
             return reject('Falta informacion en el JSON');
         }else{
 
             const loteriaNEW = {
                 "loteria"   : loteria,
-                "sorteo"    : sorteo
+                "sorteo"    : sorteo,
+                "numeros_ganadores": numeros_ganadores,
+                "fecha"     : fecha,
+                "agregado_por": agregado_por
             }
 
             console.log('Datos correctos')
@@ -20,9 +23,9 @@ const addLoteria = (loteria,sorteo) => {
     })
 }
 
-const getLoteria = () => {
+const getLoteria = (filterFechaLoteria) => {
     return new Promise((resolve, reject) => {
-        resolve(store.list());
+        resolve(store.list(filterFechaLoteria));
     })
 }
 

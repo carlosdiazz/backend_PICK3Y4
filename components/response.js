@@ -1,5 +1,5 @@
 exports.success = function(req,res, message, status) {
-    console.log("PETCION GET => "+ message || "NO HAY DETALLES");
+    console.log("PETCION GET HECHA CORRECTAMENTE ");
     res.status(status||200).send({
         error: false,
         message: message
