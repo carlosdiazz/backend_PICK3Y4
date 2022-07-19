@@ -23,9 +23,9 @@ const addLoteria = (loteria, sorteo,numeros_ganadores,fecha,agregado_por ) => {
     })
 }
 
-const getLoteria = (filterFechaLoteria) => {
+const getLoteria = (filterFechaLoteria, filterNameLoteria, filterSorteoLoteria) => {
     return new Promise((resolve, reject) => {
-        resolve(store.list(filterFechaLoteria));
+        resolve(store.list(filterFechaLoteria,filterNameLoteria, filterSorteoLoteria));
     })
 }
 

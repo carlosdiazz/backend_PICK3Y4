@@ -6,8 +6,10 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const filterFechaLoteria = req.query.fecha || null;
-    console.log(filterFechaLoteria);
-    controller.getLoteria(filterFechaLoteria)
+    const filterNameLoteria = req.query.loteria || null;
+    const filterSorteoLoteria = req.query.sorteo || null;
+
+    controller.getLoteria(filterFechaLoteria, filterNameLoteria,filterSorteoLoteria)
         .then((messageList) => {
             response.success(req,res,messageList,200);
         })
