@@ -1,5 +1,6 @@
 exports.success = function(req,res, message, status) {
-    console.log("PETICION GET HECHA CORRECTAMENTE ");
+    // QUITAR ESTE CONSOLE
+    console.log("PETICION HECHA CORRECTAMENTE => ", message);
     res.status(status||200).send({
         error: false,
         message: message

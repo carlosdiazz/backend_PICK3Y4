@@ -8,11 +8,11 @@ const addLoteria = (loteria, sorteo,numeros_ganadores,fecha,agregado_por ) => {
         }else{
 
             const loteriaNEW = {
-                "loteria"   : loteria,
-                "sorteo"    : sorteo,
-                "numeros_ganadores": numeros_ganadores,
-                "fecha"     : fecha,
-                "agregado_por": agregado_por
+                "loteria"           : loteria,
+                "sorteo"            : sorteo,
+                "numeros_ganadores" : numeros_ganadores,
+                "fecha"             : fecha,
+                "agregado_por"      : agregado_por
             }
             store.add(loteriaNEW)
             console.log(`SE ACABA DE PUBLICAR LA LOTERIA: ${loteria} SORTEO: ${sorteo} FECHA: ${fecha} AGREGADO POR: ${agregado_por}`)
@@ -22,9 +22,9 @@ const addLoteria = (loteria, sorteo,numeros_ganadores,fecha,agregado_por ) => {
     })
 }
 
-const getLoteria = (filterFechaLoteria, filterNameLoteria, filterSorteoLoteria) => {
+const getLoteria = (fecha, loteria, sorteo) => {
     return new Promise((resolve, reject) => {
-        resolve(store.list(filterFechaLoteria,filterNameLoteria, filterSorteoLoteria));
+        resolve(store.list(fecha,loteria, sorteo));
     })
 }
 
